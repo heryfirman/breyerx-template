@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import Image from "next/image";
@@ -13,6 +13,9 @@ export default function Home() {
     AOS.init();
   }, []);
   
+
+  const [bridgeValue, setBridgeValue] = useState(null);
+
   return (
     <>
       {/* ----- Header ----- */}
@@ -63,7 +66,7 @@ export default function Home() {
       </header>
 
       {/* ----- Main ----- */}
-      <main className="flex min-h-screen max-w-full overflow-x-hidden flex-col items-center justify-between mx-auto p-24">
+      <main className="flex min-h-screen max-w-full overflow-x-hidden flex-col items-center justify-between px-2 lg:px-0 mx-auto p-24">
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           <div className="sm:hidden fixed bottom-0 right-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-[#16091E] via-[#16091E] dark:from-white dark:via-white lg:absolute lg:h-auto lg:w-auto lg:bg-none lg:-translate-y-48 lg:translate-x-1/4 lg:rotate-90"
             data-aos="fade-up"
@@ -76,7 +79,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="lg:-rotate-90 font-medium ml-2 lg:ml-0 translate-x-1 lg:translate-x-0">By{" "}</span>
+              {/* <span className="lg:-rotate-90 font-medium ml-2 lg:ml-0 translate-x-1 lg:translate-x-0">By{" "}</span> */}
               <Image
                 src="/dreyerx_logo_1.png"
                 alt="Vercel Logo"
@@ -94,7 +97,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="lg:-rotate-90 font-medium ml-2 lg:ml-0 translate-x-1 lg:translate-x-0">By{" "}</span>
+              {/* <span className="lg:-rotate-90 font-medium ml-2 lg:ml-0 translate-x-1 lg:translate-x-0">By{" "}</span> */}
               <Image
                 src="/dreyerx_logo_1.png"
                 alt="Vercel Logo"
@@ -132,20 +135,21 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row justify-between w-full h-auto my-6 px-4">
                   <div className="flex-1">
-                    <span className="font-medium text-4xl text-white">902.01</span>
+                    {/* <span className="font-medium text-4xl text-white">902.01</span> */}
+                    <input className="font-medium text-4xl text-white bg-black w-full cursor-pointer" value={0} />
                   </div>
                   <div className="flex justify-center items-center space-x-1.5 px-2 border-2 border-white/10 rounded-3xl">
-                    <div className="relative w-7 h-7 rounded-full bg-dark-purple">
+                    <div className="flex items-center w-7 h-7 rounded-full bg-dark-purple">
                       <Image
-                        src="/logo-eth.png"
-                        alt="Ethereum Logo"
+                        src="/dreyerx_logo.png"
+                        alt="DreyerX Logo"
                         className="dark:invert mx-auto"
-                        width={16}
-                        height={16}
+                        width={25}
+                        height={25}
                         priority
                       />
                     </div>
-                    <div className="leading-4 sm:leading-none"><span className="uppercase font-semibold text-xs sm:text-base text-white">eth</span></div>
+                    <div className="leading-4 sm:leading-none"><span className="uppercase font-semibold text-xs sm:text-base text-white">DRX</span></div>
                   </div>
                 </div>
                 <div className="flex flex-row justify-between w-full h-auto my-6 px-4">
@@ -194,35 +198,6 @@ export default function Home() {
                       </div>
                       <span className="inline-block ml-[6px] leading-7 float-right text-sm sm:text-base sm:leading-7 tracking-wide text-white">DreyerX</span>
                     </div>
-                    <div className="flex justify-center items-center gap-2">
-                      <div>
-                        <span className="float-left inline-block w-5 h-5 mt-0.5 rounded-full">
-                          <Image
-                            src="/logo-eth.png"
-                            alt="Ethereum Logo"
-                            className="dark:invert mx-auto"
-                            width={12}
-                            height={12}
-                            priority
-                          />
-                        </span>
-                        <span className="ml-0.5 text-sm text-white">1</span>
-                      </div>
-                      <span className="text-base text-white">=</span>
-                      <div>
-                        <span className="float-left object-fill inline-block w-5 h-5 mt-0.5 rounded-full">
-                          <Image
-                            src="/dreyerx_logo.png"
-                            alt="Ethereum Logo"
-                            className="dark:invert mx-auto"
-                            width={20}
-                            height={20}
-                            priority
-                          />
-                        </span>
-                        <span className="ml-0.5 text-sm text-white">1</span>
-                      </div>
-                    </div>
                 </div>
               </div>
               <button className="w-[410px] h-14 mt-12 mb-6 rounded-[32px] text-sm lg:text-base font-medium bg-[#581C87] text-white">Connect Wallets</button>
@@ -258,7 +233,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer>;
+      </footer>
 
     </>
   );
